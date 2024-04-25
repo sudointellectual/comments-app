@@ -7,19 +7,28 @@ body {
     }
 }
 
+button {
+    background-color: lightgreen;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: .5em;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.centered {
+    display: block;
+    margin: 0 auto;
+}
+
 .commentForm {
     width: 100%;
     margin: 0 auto;
     padding: 0 1em;
-
-    button {
-        background-color: lightgreen;
-        outline: none;
-        border: none;
-        border-radius: 5px;
-        padding: .5em;
-        font-weight: bold;
-    }
 
     label, input, textarea, button {
         width: 100%;
@@ -44,7 +53,7 @@ body {
         margin-top: 0;
     }
 
-    .comment__author {
+    .comment__author span {
         font-weight: bold;
     }
 }

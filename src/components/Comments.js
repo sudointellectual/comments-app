@@ -21,15 +21,19 @@ const Comments = () => {
     };
 
     const deleteComments = () => {
-        fetch('http://localhost:4000/deleteComments', {
-            method: 'DELETE',
-            credentials: "same-origin"
-        })
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-        })
-        .catch(error => console.error(error));
+        if (window.confirm("Are you sure you want to clear ALL comments?")) {
+            fetch('http://localhost:4000/deleteComments', {
+                method: 'DELETE',
+                credentials: "same-origin"
+            })
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch(error => console.error(error));
+        } else {
+            console.log("crisis averted")
+        }
     };
 
     useEffect(() => {
@@ -47,8 +51,6 @@ const Comments = () => {
     
     return (
         <div>
-            {/* <button className="btn delete" onClick={deleteComments}>DELETE ALL COMMENTS</button> */}
-
             <CommentForm handleSubmit={addComment} />
             
             {comments && comments.map((comment) => (
@@ -57,6 +59,9 @@ const Comments = () => {
                     comment={comment}
                 />
             ))}
+
+            <button className="centered" onClick={deleteComments}>DELETE ALL COMMENTS</button>
+
         </div>
     )
 }

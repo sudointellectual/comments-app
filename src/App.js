@@ -1,5 +1,5 @@
 import Comments from "./components/Comments";
-import './App.css'; // Import your styles
+import './App.css';
 
 function App() {
   return (
