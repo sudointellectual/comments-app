@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+
+    * {
+        box-sizing: border-box;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.commentForm {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1em;
+
+    button {
+        background-color: lightgreen;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: .5em;
+        font-weight: bold;
+    }
+
+    label, input, textarea, button {
+        width: 100%;
+        margin-bottom: .75em;
+    }
+
+    label {
+        display: block;
+    }
+
+    textarea {
+        height: 5em;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.comment {
+    border: 1px solid black;
+    margin: 1em 0;
+    padding: 1em;
+
+    p {
+        margin-top: 0;
+    }
+
+    .comment__author {
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 37.5em) {
+    h1 {
+        text-align: center;
+    }
+
+    .commentForm {
+        padding: 0;
+    }
+    
+    .commentForm, .comment {
+        width: 37.5em;
+    }
+
+    .comment {
+        margin: 1em auto;
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
