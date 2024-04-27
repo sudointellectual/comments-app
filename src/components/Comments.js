@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
 
-const Comments = () => {
+const Comments = ({title}) => {
     const [comments, setComments] = useState([])
     const [commentsLength, setCommentsLength] = useState(0)
     
@@ -13,8 +13,7 @@ const Comments = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: name, message: comment })
         })
-        .then(response => {
-            response.json()
+        .then(() => {
             setCommentsLength(commentsLength + 1)
         })
         .catch(error => console.error(error));
@@ -22,19 +21,19 @@ const Comments = () => {
 
     const deleteComments = () => {
         if (window.confirm("Are you sure you want to clear ALL comments?")) {
-            fetch('http://localhost:4000/deleteComments', {
+          fetch('http://localhost:4000/deleteComments', {
                 method: 'DELETE',
                 credentials: "same-origin"
             })
-            .then(response => response.json())
-            .then((data) => {
-                console.log(data)
-            })
-            .catch(error => console.error(error));
+          .then(response => response.json())
+          .then((data) => {
+              console.log(data)
+          })
+          .catch(error => console.error(error));
         } else {
             console.log("crisis averted")
         }
-    };
+    }
 
     useEffect(() => {
         fetch('http://localhost:4000/getComments', {
@@ -50,7 +49,9 @@ const Comments = () => {
       }, [commentsLength]);
     
     return (
-        <div>
+        <div className="wrapper">
+            <h1>{title}</h1>
+
             <CommentForm handleSubmit={addComment} />
             
             {comments && comments.map((comment) => (
@@ -59,8 +60,8 @@ const Comments = () => {
                     comment={comment}
                 />
             ))}
-
-            <button className="centered" onClick={deleteComments}>DELETE ALL COMMENTS</button>
+    
+            <button className="centered warning" onClick={deleteComments}>DELETE ALL COMMENTS</button>
 
         </div>
     )

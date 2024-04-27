@@ -8,7 +8,8 @@ body {
 }
 
 button {
-    background-color: lightgreen;
+    background-color: forestgreen;
+    color: white;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -23,6 +24,11 @@ button:hover {
 button.centered {
     display: block;
     margin: 0 auto;
+}
+
+button.warning {
+    background-color: tomato;
+    color: white;
 }
 
 .commentForm {

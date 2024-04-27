@@ -4,8 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Comments</h1>
-      <Comments />
+      <Comments title="Comments App" />
     </div>
   );
 }
