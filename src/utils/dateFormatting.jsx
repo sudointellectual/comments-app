@@ -93,13 +93,13 @@ export const getDateCreated = (date) => {
 // get day of the week based on date
 export const getDayOfWeek = (date) => {
     const daysOfWeek = [
-        'Sunday',
         'Monday',
         'Tuesday',
         'Wednesday',
         'Thursday',
         'Friday',
         'Saturday',
+        'Sunday',
     ]
     const dayIndex = date.getDay()
 

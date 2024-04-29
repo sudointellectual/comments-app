@@ -1,6 +1,6 @@
 import * as utils from './dateFormatting'
 
-describe('date formatting', () => {
+describe('formatted date strings', () => {
     it('less than 24 hours ago', () => {
         const millisecondsIn24Hours = 24 * 60 * 60 * 1000
 
@@ -54,5 +54,30 @@ describe('date formatting helpers', () => {
         let testDate = 3
 
         expect(utils.formatDayWithSuffix(testDate)).toBe('3rd')
+    })
+
+    it('return proper date', () => {
+        let testDate = new Date('2024-04-28')
+
+        expect(utils.getDayOfWeek(testDate)).toBe('Sunday')
+    })
+
+    it('return proper month', () => {
+        let testDate = new Date('2024-04-28')
+
+        expect(utils.getMonthFromDate(testDate)).toBe('April')
+    })
+
+    it('timeago to be 0 when current time is passed', () => {
+        let currentTime = new Date()
+
+        expect(utils.timeAgo(currentTime, currentTime)).toBe(0)
+    })
+
+    it('timeago to be greater than 0 when future time is passed', () => {
+        let testTime = new Date('2025-04-28')
+        let currentTime = new Date()
+
+        expect(utils.timeAgo(testTime, currentTime)).toBeGreaterThan(0)
     })
 })
