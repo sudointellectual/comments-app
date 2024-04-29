@@ -13,7 +13,7 @@ button {
     outline: none;
     border: none;
     border-radius: 5px;
-    padding: .5em;
+    padding: 0.5em;
     font-weight: bold;
 }
 
@@ -36,9 +36,12 @@ button.warning {
     margin: 0 auto;
     padding: 0 1em;
 
-    label, input, textarea, button {
+    label,
+    input,
+    textarea,
+    button {
         width: 100%;
-        margin-bottom: .75em;
+        margin-bottom: 0.75em;
     }
 
     label {
@@ -72,12 +75,13 @@ button.warning {
     .commentForm {
         padding: 0;
     }
-    
-    .commentForm, .comment {
+
+    .commentForm,
+    .comment {
         width: 37.5em;
     }
 
     .comment {
         margin: 1em auto;
     }
-  }
+}
