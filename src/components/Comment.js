@@ -1,12 +1,12 @@
 import * as utils from '../utils/dateFormatting'
 
-const Comment = ({ comment }) => {
+const Comment = (props) => {
     return (
         <article className="comment">
-            <p className="comment__message">{comment.message}</p>
+            <p className="comment__message">{props.message}</p>
             <div className="comment__author">
-                <span>{comment.name}</span> on{' '}
-                <span>{utils.getDateCreated(comment.created)}</span>
+                <span>{props.name}</span> on{' '}
+                <span>{utils.getDateCreated(props.created)}</span>
             </div>
         </article>
     )
