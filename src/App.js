@@ -8,7 +8,7 @@ import './App.css'
 
 const App = () => {
     const [comments, setComments] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [page, setPage] = useState(1)
     const [showLoadMore, setShowLoadMore] = useState(true)
@@ -40,6 +40,8 @@ const App = () => {
 
     useEffect(() => {
         let ignore = false
+        setIsLoading(true)
+
         const fetchData = async () => {
             const response = await axios
                 .get(
