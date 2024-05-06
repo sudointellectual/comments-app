@@ -26,7 +26,7 @@ const CommentForm = ({ handleSubmit }) => {
                 name="message"
                 required
                 placeholder="message"
-                minLength="10"
+                minLength="5"
                 value={comment.message}
             />
             <button>Comment</button>

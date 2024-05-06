@@ -3,9 +3,11 @@ import Comment from './Comment'
 const Comments = ({ comments }) => {
     return (
         <>
-            {comments.map(function (comment) {
-                return <Comment key={comment.id} comment={comment} />
-            })}
+            {comments
+                .sort((a, b) => new Date(b.created) - new Date(a.created))
+                .map(function (comment) {
+                    return <Comment key={comment.id} comment={comment} />
+                })}
         </>
     )
 }

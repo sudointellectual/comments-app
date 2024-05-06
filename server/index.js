@@ -34,9 +34,29 @@ app.get('/getComment', function (request, response) {
     })
 })
 
-app.get('/getComments', function (request, response) {
-    comment.getComments().then((result) => {
-        response.send(result)
+// app.get('/getComments', function (request, response) {
+//     comment.getComments().then((result) => {
+//         response.send(result)
+//     })
+// })
+
+app.get('/getComments', (req, res) => {
+    comment.getComments().then((comments) => {
+        const page = parseInt(req.query.page)
+        const pageSize = parseInt(req.query.pageSize)
+
+        // Calculate the start and end indexes for the requested page
+        const startIndex = (page - 1) * pageSize
+        const endIndex = page * pageSize
+
+        // Slice the comments array based on the indexes
+        const paginatedComments = comments.slice(startIndex, endIndex)
+
+        // Calculate the total number of pages
+        const totalPages = Math.ceil(comments.length / pageSize)
+
+        // Send the paginated comments and total pages as the API response
+        res.json({ comments: paginatedComments, totalPages })
     })
 })
 

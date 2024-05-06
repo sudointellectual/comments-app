@@ -31,8 +31,14 @@ class Comment {
         )
     }
 
-    getComments() {
-        return this.dataAccessObject.all('SELECT * FROM comments')
+    getComments(order) {
+        if (order == 'DESC') {
+            return this.dataAccessObject.all('SELECT * FROM comments')
+        } else {
+            return this.dataAccessObject.all(
+                'SELECT * FROM comments ORDER BY created DESC'
+            )
+        }
     }
 }
 

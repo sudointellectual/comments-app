@@ -24,6 +24,7 @@ button:hover {
 button.centered {
     display: block;
     margin: 0 auto;
+    margin-bottom: 0.75em;
 }
 
 button.warning {
@@ -76,9 +77,9 @@ button.warning {
         padding: 0;
     }
 
-    .commentForm,
-    .comment {
+    .App {
         width: 37.5em;
+        margin: 0 auto;
     }
 
     .comment {

@@ -80,4 +80,10 @@ describe('date formatting helpers', () => {
 
         expect(utils.timeAgo(testTime, currentTime)).toBeGreaterThan(0)
     })
+
+    it('dateCreated must be passed a date', () => {
+        let currentTime = null
+
+        expect(utils.getDateCreated(currentTime)).toBeUndefined()
+    })
 })

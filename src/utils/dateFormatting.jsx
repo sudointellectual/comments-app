@@ -71,6 +71,11 @@ export const formatDayWithSuffix = (day) => {
 }
 
 export const getDateCreated = (date) => {
+    if (!date) {
+        console.log('no date')
+        return
+    }
+
     const millisecondsIn24Hours = 24 * 60 * 60 * 1000
 
     const commentDate = new Date(date)
